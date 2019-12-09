@@ -18,12 +18,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 1]) ?>
 
+    <?= $form->field($model, 'director')->textInput(['maxlength' => true]) ?>
 
-<!--    --><?//= $form->field($model, 'date')->textInput() ?>
+    <?= $form->field($model, 'year')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'duration')->textInput(['maxlength' => true]) ?>
+
+    <!--    --><? //= $form->field($model, 'date')->textInput() ?>
 
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

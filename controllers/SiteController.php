@@ -67,7 +67,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $data = Article::getAll(5);
+        $data = Article::getAll(10);
+        $data['articles'] = array_reverse($data['articles']);
         $popular = Article::getPopular();
         $categories = Category::find()->all();
 
@@ -87,13 +88,11 @@ class SiteController extends Controller
         $article = Article::findOne($id);
         $popular = Article::getPopular();
         $categories = Category::find()->all();
-//        $tags = ArrayHelper::map(Tag::find()->all(), 'id', 'title');
         $tags = $article->tags;
         $comments = $article->getArticleComments();
         $commentForm = new CommentForm();
 
         $article->viewedCounter();
-        echo ('gs');
 
         return $this->render('single', [
             'article' => $article,
